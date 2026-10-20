@@ -1,0 +1,49 @@
+version: 1
+build:
+  proto:
+    path: proto
+
+client:
+  prefix: "luxa"
+
+accounts:
+  - name: alice
+    coins:
+      - 2000000000000uluxa
+      - 5000000000000000ushard
+  - name: bob
+    coins:
+      - 500000000000uluxa
+      - 1000000000000000ushard
+  - name: luxatreasury
+    coins:
+      - 1000000000000000uluxa
+      - 10000000000000000000ushard
+
+faucet:
+  name: bob
+  coins:
+    - 10000000uluxa
+    - 1000000000ushard
+  host: ":4500"
+
+validators:
+  - name: alice
+    bonded: "1000000000000uluxa"
+    app:
+      minimum-gas-prices: "0uluxa"
+    config:
+      moniker: "luxa-genesis-validator"
+
+genesis:
+  chain_id: "luxa-1"
+  app_state:
+    staking:
+      params:
+        bond_denom: "uluxa"
+    mint:
+      params:
+        mint_denom: "uluxa"
+        inflation_rate_change: "0.000000000000000000"
+        inflation_max: "0.000000000000000000"
+        inflation_min: "0.000000000000000000"
